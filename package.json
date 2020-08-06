@@ -1,0 +1,60 @@
+{
+  "name": "gerador-nb",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "copy-to-clipboard": "^3.3.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-flash-message": "^1.0.2",
+    "react-notifications": "^1.6.0",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "eslint": "^6.6.0",
+    "eslint-plugin-react": "^7.20.5",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:ci": "cross-env CI=true react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./**/*{.js,.jsx}",
+    "prettier": "prettier --write .",
+    "pretty-quick": "pretty-quick"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
