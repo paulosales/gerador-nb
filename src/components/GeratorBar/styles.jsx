@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const NbGeneratorBarContainer = styled.div`
+export const MainBar = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -10,3 +10,4 @@ export const NbGeneratorBarContainer = styled.div`
   box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
     0 24px 46px var(--display-bar-shadow);
 `
+export const GeneratorBarContainer = styled.div``

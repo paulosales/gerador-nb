@@ -1,11 +1,11 @@
 import React from 'react'
-import NbGeratorBar from './NbGeratorBar'
+import GeratorBar from './GeratorBar'
 import { AppContainer } from './styles'
 
 function App() {
   return (
     <AppContainer>
-      <NbGeratorBar />
+      <GeratorBar />
     </AppContainer>
   )
 }
