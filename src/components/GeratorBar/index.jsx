@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { MainBar, GeneratorBarContainer } from './styles'
+import {
+  MainBar,
+  GeneratorBarContainer
+} from './styles'
 import Display from '../Display'
 import Button from '../Button'
 import { generateNb } from '../../service/nb-service'
 
-const NbGeneratorBar = () => {
+const GeneratorBar = () => {
   const [nb, setNb] = useState(generateNb())
 
   return (
@@ -17,11 +20,11 @@ const NbGeneratorBar = () => {
             setNb(generateNb())
           }}
         >
-          Regerar
+          Gerar
         </Button>
       </MainBar>
     </GeneratorBarContainer>
   )
 }
 
-export default NbGeneratorBar
+export default GeneratorBar
