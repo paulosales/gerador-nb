@@ -13,9 +13,10 @@ const GeneratorBar = () => {
   return (
     <GeneratorBarContainer>
       <MainBar>
-        <Display formated={true} nb={nb} label="NB formatado" />
-        <Display formated={false} nb={nb} label="NB não formatado" />
+        <Display formated={true} nb={nb} label="NB formatado" shortCut="alt+c"/>
+        <Display formated={false} nb={nb} label="NB não formatado" shortCut="ctrl+c"/>
         <Button
+          shortCut="g"
           onClick={() => {
             setNb(generateNb())
           }}
