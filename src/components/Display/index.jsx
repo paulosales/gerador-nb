@@ -18,7 +18,7 @@ class Display extends React.PureComponent {
     const { formated, nb } = this.props
     const nbShowed = formated ? formatNb(nb) : nb
     copy(nbShowed)
-    NotificationManager.info(`CPF ${nbShowed} copiado.`, '', 3000)
+    NotificationManager.info(`NB ${nbShowed} copiado.`, '', 3000)
   }
 
   componentDidMount() {
