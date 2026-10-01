@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import {
-  MainBar,
-  GeneratorBarContainer
-} from './styles'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons'
+import { MainBar, GeneratorBarContainer } from './styles'
 import Display from '../Display'
 import Button from '../Button'
 import { generateNb } from '../../service/nb-service'
@@ -13,15 +12,20 @@ const GeneratorBar = () => {
   return (
     <GeneratorBarContainer>
       <MainBar>
-        <Display formated={true} nb={nb} label="NB formatado" shortCut="alt+c"/>
-        <Display formated={false} nb={nb} label="NB não formatado" shortCut="ctrl+c"/>
+        <Display formated nb={nb} label="NB formatado" shortCut="alt+c" />
+        <Display
+          formated={false}
+          nb={nb}
+          label="NB não formatado"
+          shortCut="ctrl+c"
+        />
         <Button
           shortCut="g"
           onClick={() => {
             setNb(generateNb())
           }}
         >
-          Gerar
+          <FontAwesomeIcon icon={faArrowsRotate} /> Gerar
         </Button>
       </MainBar>
     </GeneratorBarContainer>

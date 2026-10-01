@@ -1,36 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import hotKeys, { hotkey_display } from 'react-keyboard-shortcuts'
-import ButtonContainer from './styles'
+import ButtonContainer, { ButtonHint } from './styles'
+import useHotkey, { formatShortcut } from '../../hooks/useHotkey'
 
-class Button extends React.PureComponent {
-  render() {
-    this.hot_keys = {}
+const Button = ({ onClick, shortCut, children }) => {
+  useHotkey(shortCut, onClick)
 
-    if (this.props.shortCut) {
-      this.hot_keys[this.props.shortCut] = {
-        priority: 1,
-        handler: () => {
-          this.props.onClick()
-        },
+  return (
+    <ButtonContainer
+      onClick={onClick}
+      title={
+        shortCut ? `Tecla de atalho: ${formatShortcut(shortCut)}` : undefined
       }
-    }
-
-    return (
-      <ButtonContainer
-        onClick={this.props.onClick}
-        title={`Tecla de atalho: ${hotkey_display(this.props.shortCut)}`}
-      >
-        {this.props.children}
-      </ButtonContainer>
-    )
-  }
+    >
+      {children}
+      {shortCut && <ButtonHint>{formatShortcut(shortCut)}</ButtonHint>}
+    </ButtonContainer>
+  )
 }
 
 Button.propTypes = {
   onClick: PropTypes.func,
   shortCut: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.node,
 }
 
-export default hotKeys(Button)
+export default Button

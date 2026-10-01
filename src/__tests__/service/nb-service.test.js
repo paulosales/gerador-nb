@@ -6,7 +6,7 @@ describe('NbService', () => {
       sequence = sequence.split('').map((item) => Number.parseInt(item))
     }
     sequence.forEach((item) => {
-      jest.spyOn(global.Math, 'random').mockReturnValueOnce(item / 9)
+      vi.spyOn(global.Math, 'random').mockReturnValueOnce(item / 9)
     })
   }
 
@@ -38,7 +38,7 @@ describe('NbService', () => {
 
     describe(`when generate the NBs ${nbs.join(', ')}`, () => {
       afterEach(() => {
-        jest.spyOn(global.Math, 'random').mockRestore()
+        vi.spyOn(global.Math, 'random').mockRestore()
       })
 
       it(`should generate the NBs with checksum ${nbsWithChecksum.join(

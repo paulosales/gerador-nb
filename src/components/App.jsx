@@ -1,12 +1,19 @@
 import React from 'react'
 import GeratorBar from './GeratorBar'
-import { AppContainer } from './styles'
+import { AppContainer, AppTitle, AppSubtitle, AppFooter } from './styles'
 
 function App() {
   return (
     <AppContainer>
-      <h1>Gerador de NB</h1>
+      <AppTitle>Gerador de Número do Benefício (NB)</AppTitle>
+      <AppSubtitle>
+        Gere números de NB do INSS, formatados ou não, para testes e
+        homologação.
+      </AppSubtitle>
       <GeratorBar />
+      <AppFooter>
+        Uso exclusivo para testes. Não representa um benefício real.
+      </AppFooter>
     </AppContainer>
   )
 }

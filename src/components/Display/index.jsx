@@ -1,54 +1,45 @@
-import React from 'react'
-import { DisplayContainer, DisplayLabel, DisplayContent } from './styles'
+import React, { useCallback } from 'react'
+import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy } from '@fortawesome/free-regular-svg-icons'
 import copy from 'copy-to-clipboard'
-import PropTypes from 'prop-types'
+import {
+  DisplayContainer,
+  DisplayLabel,
+  DisplayContent,
+  DisplayHint,
+} from './styles'
+import useHotkey, { formatShortcut } from '../../hooks/useHotkey'
+import { useToast } from '../Toast'
 import { formatNb } from '../../service/nb-service'
-import { NotificationManager } from 'react-notifications'
-import { hotkey_display, hotkeys } from 'react-keyboard-shortcuts'
 
-class Display extends React.PureComponent {
-  constructor() {
-    super()
-    this.doCopy = this.doCopy.bind(this)
-  }
+const Display = ({ formated, nb, label, shortCut }) => {
+  const showToast = useToast()
 
-  doCopy() {
-    const { formated, nb } = this.props
-    const nbShowed = formated ? formatNb(nb) : nb
+  const nbShowed = formated ? formatNb(nb) : nb
+
+  const doCopy = useCallback(() => {
     copy(nbShowed)
-    NotificationManager.info(`NB ${nbShowed} copiado.`, '', 3000)
-  }
+    showToast(`NB ${nbShowed} copiado.`)
+  }, [nbShowed, showToast])
 
-  componentDidMount() {
-    this.hot_keys = {}
-    if (this.props.shortCut) {
-      this.hot_keys[this.props.shortCut] = {
-        priority: 1,
-        handler: this.doCopy,
-      }
-    }
-  }
+  useHotkey(shortCut, doCopy)
 
-  render() {
-    const { formated, nb, label } = this.props
-
-    const nbShowed = formated ? formatNb(nb) : nb
-
-    return (
-      <DisplayContainer
-        title={`Copie com ${hotkey_display(this.props.shortCut)}`}
-        onClick={this.doCopy}
-      >
-        <DisplayLabel>{label}</DisplayLabel>
-        <DisplayContent>
-          {nbShowed}
-          <FontAwesomeIcon icon={faCopy} />
-        </DisplayContent>
-      </DisplayContainer>
-    )
-  }
+  return (
+    <DisplayContainer
+      title={shortCut ? `Copie com ${formatShortcut(shortCut)}` : undefined}
+      onClick={doCopy}
+    >
+      <DisplayLabel>{label}</DisplayLabel>
+      <DisplayContent>
+        <span>{nbShowed}</span>
+        <FontAwesomeIcon icon={faCopy} />
+      </DisplayContent>
+      {shortCut && (
+        <DisplayHint>Atalho: {formatShortcut(shortCut)}</DisplayHint>
+      )}
+    </DisplayContainer>
+  )
 }
 
 Display.propTypes = {
@@ -58,4 +49,4 @@ Display.propTypes = {
   label: PropTypes.string.isRequired,
 }
 
-export default hotkeys(Display)
+export default Display
