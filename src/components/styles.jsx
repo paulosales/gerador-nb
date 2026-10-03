@@ -20,7 +20,7 @@ export const AppTitle = styled.h1`
 
 export const AppSubtitle = styled.p`
   margin: -20px 0 0;
-  max-width: 480px;
+  max-width: 750px;
   color: var(--text-muted);
   font-size: 1rem;
 `

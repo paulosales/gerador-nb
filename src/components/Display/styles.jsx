@@ -28,6 +28,7 @@ export const DisplayContent = styled.div`
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: 1.9rem;
   font-weight: 600;
+  width: 330px;
   letter-spacing: 0.03em;
   color: var(--primary);
   transition:
@@ -54,6 +55,7 @@ export const DisplayContent = styled.div`
   @media (max-width: 480px) {
     font-size: 1.15rem;
     padding: 10px 14px;
+    width: 225px;
   }
 `
 

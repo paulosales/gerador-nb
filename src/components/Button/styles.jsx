@@ -6,7 +6,7 @@ const ButtonContainer = styled.button`
   align-items: center;
   justify-content: center;
   gap: 6px;
-  width: 625px;
+  width: 700px;
   max-width: 100%;
   font-size: 1.6rem;
   font-weight: 600;
@@ -14,6 +14,7 @@ const ButtonContainer = styled.button`
   margin: 6px;
   border-radius: 10px;
   border: none;
+  width: 685px;
   color: #ffffff;
   background-color: var(--primary);
   cursor: pointer;
@@ -29,8 +30,13 @@ const ButtonContainer = styled.button`
     transform: translateY(1px);
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 781px) {
     font-size: 1.25rem;
+    width: 330px;
+  }
+
+  @media (max-width: 480px) {
+    width: 225px;
   }
 `
 

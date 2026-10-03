@@ -19,5 +19,5 @@ export const GeneratorBarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 720px;
+  max-width: 750px;
 `
